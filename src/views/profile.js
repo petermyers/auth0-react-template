@@ -8,8 +8,8 @@ const Profile = () => {
 
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">Profile</h1>
-      <div className="flex flex-wrap mt-6">
+      <h1 className="text-3xl text-black">Profile</h1>
+      <div className="flex flex-wrap mt-6 px-2">
         Profile content would go here...
       </div>
     </>
