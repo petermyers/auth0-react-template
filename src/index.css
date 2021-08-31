@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,11 +8,18 @@
 .font-family-karla {
   font-family: "Karla", sans-serif;
 }
+.font-family-maven {
+  font-family: "Maven Pro", sans-serif;
+}
+
 .bg-sidebar {
   background: #3d68ff;
 }
 .btn-primary {
   background: #3d68ff;
+}
+.header-text {
+  color: #3d68ff;
 }
 .btn-text {
   color: #3d68ff;
@@ -27,12 +35,16 @@
 }
 .active-nav-link {
   background: #1947ee;
+  color: #fff !important;
 }
 .nav-item:hover {
   background: #1947ee;
 }
 .account-link:hover {
   background: #3d68ff;
+}
+.gravatar-image {
+  height: 35px;
 }
 
 body {

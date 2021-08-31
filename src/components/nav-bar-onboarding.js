@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import md5 from "md5";
 
 const NavBar = () => {
   const [isAvatarMenuOpen, setAvatarMenuOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { logout, isAuthenticated, loginWithRedirect, user } = useAuth0();
+  const { logout, isAuthenticated, user } = useAuth0();
   const { email } = user || { email: "" };
 
   const md5Email = md5(email);
@@ -22,9 +22,15 @@ const NavBar = () => {
   return (
     <>
       <header className="h-auto w-full flex items-center bg-white py-2 px-6 hidden sm:flex">
-        <div className="w-1/2"></div>
+        <div className="w-1/2">
+          <a
+            href="/"
+            className="font-family-maven header-text text-3xl font-semibold"
+          >
+            App Name
+          </a>
+        </div>
         <div className="relative w-1/2 flex justify-end items-center">
-          {/* <AuthenticationButton /> */}
           {isAuthenticated && (
             <img
               alt="avatar"
@@ -53,7 +59,7 @@ const NavBar = () => {
       <header className="h-auto align-middle w-full bg-white py-2 px-6 sm:hidden">
         <div className="flex items-center justify-between w-full">
           <a
-            href="/home"
+            href="/"
             className="font-family-maven header-text text-3xl font-semibold"
           >
             App Name
@@ -69,33 +75,6 @@ const NavBar = () => {
         </div>
         {isMobileMenuOpen && (
           <nav className="flex flex-col pt-4 ">
-            <NavLink
-              to="/home"
-              onClick={toggleMenu}
-              exact
-              className="flex items-center header-text hover:text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
-              activeClassName="active-nav-link text-white opacity-100"
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/profile"
-              onClick={toggleMenu}
-              exact
-              className="flex items-center header-text hover:text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
-              activeClassName="active-nav-link text-white opacity-100"
-            >
-              Profile
-            </NavLink>
-            <NavLink
-              to="/external-api"
-              onClick={toggleMenu}
-              exact
-              className="flex items-center header-text hover:text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
-              activeClassName="active-nav-link text-white opacity-100"
-            >
-              External API
-            </NavLink>
             {isAuthenticated && (
               <>
                 <hr />
@@ -105,30 +84,9 @@ const NavBar = () => {
                       returnTo: window.location.origin,
                     });
                   }}
-                  className="flex items-center header-text hover:text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
+                  className="flex items-center header-text opacity-75 hover:text-white hover:opacity-100 py-2 pl-4 nav-item"
                 >
                   Logout
-                </button>
-              </>
-            )}
-            {!isAuthenticated && (
-              <>
-                <hr />
-                <button
-                  onClick={() => {
-                    loginWithRedirect();
-                  }}
-                  className="flex items-center header-text hover:text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
-                >
-                  Log In
-                </button>
-                <button
-                  onClick={() => {
-                    loginWithRedirect({ screen_hint: "signup" });
-                  }}
-                  className="flex items-center header-text hover:text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
-                >
-                  Sign Up
                 </button>
               </>
             )}

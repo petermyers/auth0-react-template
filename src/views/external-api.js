@@ -23,7 +23,7 @@ const ExternalApi = () => {
     try {
       const token = await getAccessTokenSilently();
 
-      const response = await fetch(`${serverUrl}/messages/protected`, {
+      const response = await fetch(`${serverUrl}/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

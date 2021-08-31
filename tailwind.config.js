@@ -6,6 +6,9 @@ module.exports = {
       height: {
         header: "65px",
       },
+      text: {
+        blue: "#3d68ff",
+      },
     },
   },
   variants: {
