@@ -46,6 +46,9 @@
 .gravatar-image {
   height: 35px;
 }
+.active-nav .bar {
+  display: block;
+}
 
 body {
   margin: 0;

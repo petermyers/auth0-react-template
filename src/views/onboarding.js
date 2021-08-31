@@ -1,8 +1,7 @@
-import NavBarOnboarding from "../components/nav-bar-onboarding";
+import NavBar from "../components/nav-bar";
 import { useForm } from "react-hook-form";
 import React, { useState, useContext } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Redirect } from "react-router-dom";
 import { UserContext } from "../context/user-context";
 
 const serverUrl = process.env.REACT_APP_SERVER_URL;
@@ -49,7 +48,7 @@ const Onboarding = () => {
   return (
     <>
       <div className="w-full h-screen overflow-y-hidden">
-        <NavBarOnboarding />
+        <NavBar isOnboarding={true} />
 
         <div className="mt-8 w-full flex flex-col items-center justify-center px-5">
           <h1 className="text-3xl text-center">

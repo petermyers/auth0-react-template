@@ -14,7 +14,7 @@ const PageContent = () => {
         <NavBar />
 
         <div className="w-full overflow-x-hidden border-t flex flex-col">
-          <main className="w-full flex-grow p-6">
+          <main className="w-full flex-grow py-8 px-4 sm:px-24 md:px-28">
             <Switch>
               <ProtectedRoute path="/home" component={Home} />
               <ProtectedRoute path="/profile" component={Profile} />
