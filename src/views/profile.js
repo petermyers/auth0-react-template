@@ -1,4 +1,5 @@
 import React from "react";
+import PageLayout from "../components/layout/page-layout";
 
 // import { useAuth0 } from "@auth0/auth0-react";
 
@@ -7,12 +8,7 @@ const Profile = () => {
   // const { name, picture, email } = user;
 
   return (
-    <>
-      <h1 className="text-3xl text-black">Profile</h1>
-      <div className="flex flex-wrap mt-6 px-2">
-        Profile content would go here...
-      </div>
-    </>
+    <PageLayout title="Profile">Profile content would go here...</PageLayout>
   );
 };
 
